@@ -1,3 +1,5 @@
 nico_blog_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NicoBlogBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: NicoBlogBundle:Page:index }
+    requirements:
+        _method:  GET
