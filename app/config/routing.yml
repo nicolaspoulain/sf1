@@ -1,0 +1,4 @@
+nico_blog:
+    resource: "@NicoBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+

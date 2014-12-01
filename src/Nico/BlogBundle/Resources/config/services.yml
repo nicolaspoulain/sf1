@@ -1,0 +1,7 @@
+parameters:
+#    nico_blog.example.class: Nico\BlogBundle\Example
+
+services:
+#    nico_blog.example:
+#        class: %nico_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
