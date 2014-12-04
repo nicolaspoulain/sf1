@@ -24,12 +24,12 @@
 
   <div class="navbar navbar-default">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="{{ path('Nico_BlogBundle_homepage') }}">Brand</a>
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="{{ path('Nico_BlogBundle_homepage') }}">Home</a></li>
+        <li><a href="{{ path('Nico_BlogBundle_about') }}">About</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
       <form class="navbar-form navbar-right">
@@ -39,7 +39,7 @@
   </div>
 
   <div class="jumbotron">
-    <h1>{% block blog_title %}<a href="#">symblog</a>{% endblock %}</h1>
+    <h1>{% block blog_title %}<a href="{{ path('Nico_BlogBundle_homepage') }}">symblog</a>{% endblock %}</h1>
     <h3>{% block blog_tagline %}<a href="#">creating a blog in Symfony2</a>{% endblock %}</h3>
   </div>   
 
