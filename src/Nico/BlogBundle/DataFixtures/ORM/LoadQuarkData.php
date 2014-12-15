@@ -18,16 +18,27 @@ class LoadQuarkData extends AbstractFixture implements OrderedFixtureInterface
         $quark01 = new Quark();
         $quark01->setContent('Un exo de Mathématiques');
         $quark01->setParent(0);
-        $quark01->setcategoriesCsv("mathhhh");
+        $quark01->setcategoriesCsv("math");
         $quark01->setUserId(1);
+        $quark01->addGroup($this->getReference('category-maths'));
+
+        $quark02 = new Quark();
+        $quark02->setContent('Un exo de Mathématiques et aussi de SVT');
+        $quark02->setParent(0);
+        $quark02->setcategoriesCsv("math , svt");
+        $quark02->setUserId(1);
+        $quark02->addGroup($this->getReference('category-maths'));
+        $quark02->addGroup($this->getReference('category-svt'));
 
         $manager->persist($quark01);
+        $manager->persist($quark02);
         $manager->flush();
 
-        $quark01->addGroup($this->getReference('category-maths'));
-        $this->addReference('quark-maths' , $quark01);
     }
 
+    /**
+     *  {@inheritDoc}
+     */
     public function getOrder() {
       return 1; // Load after categories
     }

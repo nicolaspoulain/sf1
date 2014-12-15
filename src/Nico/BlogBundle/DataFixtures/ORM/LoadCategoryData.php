@@ -43,6 +43,9 @@ class LoadCategoryData extends AbstractFixture implements OrderedFixtureInterfac
         $this->addReference('category-eps'   , $category04);
     }
 
+    /**
+     *  {@inheritDoc}
+     */
     public function getOrder() {
       return 0; // Load before quarks
     }
