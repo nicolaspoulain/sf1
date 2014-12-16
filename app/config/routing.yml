@@ -1,3 +1,7 @@
+nico_user:
+    resource: "@NicoUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 nico_blog:
     resource: "@NicoBlogBundle/Resources/config/routing.yml"
     prefix:   /

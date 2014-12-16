@@ -20,6 +20,13 @@ framework:
     session:         ~
     fragments:       ~
 
+# FOSUserBundle configuration
+fos_user:
+    db_driver: orm  # Le type de Bdd à utlisier
+    firewall_name: main  # le nom du firewall derrière qui on utilise ces users
+    user_class: Nico\UserBundle\Entity\User # la classe de l'entité User
+
+
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
