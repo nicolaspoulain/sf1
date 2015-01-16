@@ -1,0 +1,30 @@
+quark:
+    path:     /
+    defaults: { _controller: "NicoBlogBundle:Quark:index" }
+
+quark_show:
+    path:     /{id}/show
+    defaults: { _controller: "NicoBlogBundle:Quark:show" }
+
+quark_new:
+    path:     /new
+    defaults: { _controller: "NicoBlogBundle:Quark:new" }
+
+quark_create:
+    path:     /create
+    defaults: { _controller: "NicoBlogBundle:Quark:create" }
+    requirements: { _method: post }
+
+quark_edit:
+    path:     /admin/{id}/edit
+    defaults: { _controller: "NicoBlogBundle:Quark:edit" }
+
+quark_update:
+    path:     /{id}/update
+    defaults: { _controller: "NicoBlogBundle:Quark:update" }
+    requirements: { _method: post|put }
+
+quark_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NicoBlogBundle:Quark:delete" }
+    requirements: { _method: post|delete }
