@@ -8,3 +8,12 @@ Nico_BlogBundle_about:
     defaults: { _controller: NicoBlogBundle:Page:about }
     requirements:
         _method:  GET
+Nico_BlogBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: NicoBlogBundle:Page:contact }
+    requirements:
+        _method:  GET
+NicoBlogBundle_quark:
+    resource: "@NicoBlogBundle/Resources/config/routing/quark.yml"
+    prefix:   /quark
+
