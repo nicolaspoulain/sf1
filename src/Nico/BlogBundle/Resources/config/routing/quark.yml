@@ -16,7 +16,7 @@ quark_create:
     requirements: { _method: post }
 
 quark_edit:
-    path:     /admin/{id}/edit
+    path:     /{id}/edit
     defaults: { _controller: "NicoBlogBundle:Quark:edit" }
 
 quark_update:

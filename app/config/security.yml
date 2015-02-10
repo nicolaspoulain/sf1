@@ -30,4 +30,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/quark/admin/, role: ROLE_ADMIN }
+        - { path: ^/quark/[0-9]+/new, role: ROLE_ADMIN }
+        - { path: ^/quark/[0-9]+/edit, role: ROLE_ADMIN }
+        - { path: ^/quark/[0-9]+/delete, role: ROLE_ADMIN }
