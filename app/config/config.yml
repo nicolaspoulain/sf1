@@ -32,6 +32,11 @@ stof_doctrine_extensions:
         default:
             timestampable: true
 
+# BeelabTag Configuration
+beelab_tag:
+    tag_class: Nico\BlogBundle\Entity\Tag
+    purge: true
+
 # Twig Configuration
 twig:
     debug:            %kernel.debug%

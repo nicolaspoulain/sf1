@@ -16,4 +16,3 @@ Nico_BlogBundle_contact:
 NicoBlogBundle_quark:
     resource: "@NicoBlogBundle/Resources/config/routing/quark.yml"
     prefix:   /quark
-

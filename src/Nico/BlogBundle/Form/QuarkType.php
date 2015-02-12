@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class QuarkType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -16,12 +16,11 @@ class QuarkType extends AbstractType
     {
         $builder
             ->add('content')
-            ->add('categories_csv')
             ->add('parent')
             ->add('user_id')
-            ->add('created_at')
-            ->add('updated_at')
-            ->add('groups')
+            ->add('tagsText', 'text', array('attr' => array('class'=>'singleFieldTags'), 'required' => false, 'label' => 'Tags'))
+            // ->add('created')
+            // ->add('updated')
         ;
     }
     

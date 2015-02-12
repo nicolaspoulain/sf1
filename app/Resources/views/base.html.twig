@@ -14,6 +14,43 @@
 <link href="{{ asset('css/screen.css') }}" type="text/css" rel="stylesheet" />
 <link href="{{ asset('css/simple-sidebar.css') }}" type="text/css" rel="stylesheet" />
 <link href="{{ asset('css/sticky-footer-navbar.css') }}" type="text/css" rel="stylesheet" />
+
+    <link href="{{ asset('css/jquery.tagit.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/tagit.ui-zendesk.css') }}" rel="stylesheet" type="text/css">
+    <!--
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    -->
+    <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- The real deal -->
+    <script src="{{ asset('js/tag-it.js') }}" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        $(function(){
+            var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+
+            //-------------------------------
+            // Single field
+            //-------------------------------
+            $('.singleFieldTags').tagit({
+                availableTags: sampleTags,
+                // This will make Tag-it submit a single form value, as a comma-delimited field.
+                singleField: true,
+                singleFieldNode: $('#mySingleField')
+            });
+
+            // singleFieldTags2 is an INPUT element, rather than a UL as in the other 
+            // examples, so it automatically defaults to singleField.
+            $('#singleFieldTags2').tagit({
+                availableTags: sampleTags
+            });
+            
+        });
+    </script>
+
+
 </head>
 <body>
 <section id="wrapper">

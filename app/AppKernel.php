@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Nico\BlogBundle\NicoBlogBundle(),
             new Nico\UserBundle\NicoUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Beelab\TagBundle\BeelabTagBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -14,10 +14,6 @@
                 <td>{{ entity.content }}</td>
             </tr>
             <tr>
-                <th>Categories_csv</th>
-                <td>{{ entity.categoriescsv }}</td>
-            </tr>
-            <tr>
                 <th>Parent</th>
                 <td>{{ entity.parent }}</td>
             </tr>
@@ -26,12 +22,12 @@
                 <td>{{ entity.userid }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
-                <td>{{ entity.createdat|date('Y-m-d H:i:s') }}</td>
+                <th>Created</th>
+                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Updated_at</th>
-                <td>{{ entity.updatedat|date('Y-m-d H:i:s') }}</td>
+                <th>Updated</th>
+                <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
             </tr>
         </tbody>
     </table>

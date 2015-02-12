@@ -21,7 +21,9 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "dev-master",
-        "stof/doctrine-extensions-bundle": "~1.1"
+        "stof/doctrine-extensions-bundle": "~1.1",
+        "fpn/tag-bundle":"dev-master",
+        "beelab/tag-bundle": "1.0.*"
     },
     "scripts": {
         "post-install-cmd": [
