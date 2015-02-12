@@ -3,60 +3,52 @@
 namespace Nico\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Quark
+ * @ORM\Table("name=quark")
+ * @ORM\Entity
  */
 class Quark
 {
     /**
-     * @var integer
+     * @ORM\Column(name="id", type="guid")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
     /**
-     * @var string
+     * @Gedmo\Versioned
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
 
     /**
-     * @var string
-     */
-    private $categories_csv;
-
-    /**
-     * @var integer
+     * @ORM\Column(name="parent", type="guid")
      */
     private $parent;
 
     /**
-     * @var integer
+     * @ORM\Column(name="user_id", type="integer")
      */
     private $user_id;
 
-    /**
-     * @var \DateTime
-     */
-    private $created_at;
 
     /**
-     * @var \DateTime
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created", type="datetime")
      */
-    private $updated_at;
+    private $created;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var datetime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated", type="datetime")
      */
-    private $groups;
+    private $updated;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
     /**
      * Get id
      *
@@ -76,7 +68,7 @@ class Quark
     public function setContent($content)
     {
         $this->content = $content;
-    
+
         return $this;
     }
 
@@ -91,172 +83,48 @@ class Quark
     }
 
     /**
-     * Set categories_csv
+     * Set created
      *
-     * @param string $categoriesCsv
+     * @param \DateTime $created
      * @return Quark
      */
-    public function setCategoriesCsv($categoriesCsv)
+    public function setCreated($created)
     {
-        $this->categories_csv = $categoriesCsv;
-    
+        $this->created = $created;
+
         return $this;
     }
 
     /**
-     * Get categories_csv
-     *
-     * @return string 
-     */
-    public function getCategoriesCsv()
-    {
-        return $this->categories_csv;
-    }
-
-    /**
-     * Set parent
-     *
-     * @param integer $parent
-     * @return Quark
-     */
-    public function setParent($parent)
-    {
-        $this->parent = $parent;
-    
-        return $this;
-    }
-
-    /**
-     * Get parent
-     *
-     * @return integer 
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * Set user_id
-     *
-     * @param integer $userId
-     * @return Quark
-     */
-    public function setUserId($userId)
-    {
-        $this->user_id = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get user_id
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
-
-    /**
-     * Set created_at
-     *
-     * @param \DateTime $createdAt
-     * @return Quark
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get created_at
+     * Get created
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
+    public function getCreated()
     {
-        return $this->created_at;
+        return $this->created;
     }
 
     /**
-     * Set updated_at
+     * Set updated
      *
-     * @param \DateTime $updatedAt
+     * @param \DateTime $updated
      * @return Quark
      */
-    public function setUpdatedAt($updatedAt)
+    public function setupdated($updated)
     {
-        $this->updated_at = $updatedAt;
-    
+        $this->updated = $updated;
+
         return $this;
     }
 
     /**
-     * Get updated_at
+     * Get updated
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
+    public function getupdated()
     {
-        return $this->updated_at;
-    }
-
-    /**
-     * Add groups
-     *
-     * @param \Nico\BlogBundle\Entity\Category $groups
-     * @return Quark
-     */
-    public function addGroup(\Nico\BlogBundle\Entity\Category $groups)
-    {
-        $this->groups[] = $groups;
-    
-        return $this;
-    }
-
-    /**
-     * Remove groups
-     *
-     * @param \Nico\BlogBundle\Entity\Category $groups
-     */
-    public function removeGroup(\Nico\BlogBundle\Entity\Category $groups)
-    {
-        $this->groups->removeElement($groups);
-    }
-
-    /**
-     * Get groups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGroups()
-    {
-        return $this->groups;
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function doSetCreatedAtValue()
-    {
-      if(!$this->getCreatedAt())
-      {
-        $this->created_at = new \DateTime();
-      }
-    }
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function doSetUpdatedAtValue()
-    {
-      if(!$this->getUpdatedAt())
-      {
-        $this->updated_at = new \DateTime();
-      }
+        return $this->updated;
     }
 }
