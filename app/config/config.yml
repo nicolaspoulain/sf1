@@ -26,6 +26,11 @@ fos_user:
     firewall_name: main  # le nom du firewall derrière qui on utilise ces users
     user_class: Nico\UserBundle\Entity\User # la classe de l'entité User
 
+# Stof\DoctrineExtensionBundle configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
 
 # Twig Configuration
 twig:
