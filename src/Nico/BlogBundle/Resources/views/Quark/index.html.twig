@@ -1,49 +1,31 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Quark list</h1>
+<h1>Quark list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Content</th>
-                <th>Parent</th>
-                <th>User_id</th>
-                <th>Created</th>
-                <th>Updated</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('quark_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.content }}</td>
-                <td>{{ entity.parent }}</td>
-                <td>{{ entity.userid }}</td>
-                <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('quark_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('quark_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<p>
+  <a class="btn btn-info btn-lg" href="{{ path('quark_new') }}">
+    Create a new entry
+  </a>
+  </p>
 
-        <ul>
-        <li>
-            <a href="{{ path('quark_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% for entity in entities %}
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <span class="pull-right badge">{{ entity.parent }}</span>
+      <span class="pull-right badge">{{ entity.userid}}</span>
+      <span class="pull-right">{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %} </span>
+          {{ entity.id }}</h3>
+  </div>
+  <div class="panel-body">
+    <p>{{ entity.content }}</p>
+    <p>
+    <a class="btn btn-primary btn-xs" href="{{ path('quark_show', { 'id': entity.id }) }}">show</a>
+    <a class="btn btn-warning btn-xs"  href="{{ path('quark_edit', { 'id': entity.id }) }}">edit</a>
+    </p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
