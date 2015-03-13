@@ -19,7 +19,7 @@
           {{ entity.id }}</h3>
   </div>
   <div class="panel-body">
-    <p>{{ entity.content }}</p>
+    <p>{{ entity.content | md2html }}</p>
     <p>
     <a class="btn btn-primary btn-xs" href="{{ path('quark_show', { 'id': entity.id }) }}">show</a>
     <a class="btn btn-warning btn-xs"  href="{{ path('quark_edit', { 'id': entity.id }) }}">edit</a>

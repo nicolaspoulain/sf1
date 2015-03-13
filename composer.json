@@ -23,7 +23,8 @@
         "friendsofsymfony/user-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.1",
         "fpn/tag-bundle":"dev-master",
-        "beelab/tag-bundle": "1.0.*"
+        "beelab/tag-bundle": "1.0.*",
+        "erusev/parsedown": "~1.5"
     },
     "scripts": {
         "post-install-cmd": [
