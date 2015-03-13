@@ -15,10 +15,10 @@ class QuarkType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content')
+            ->add('content', 'textarea', array('attr' => array('rows' => '20')))
             ->add('parent')
             ->add('user_id')
-            ->add('tagsText', 'text', array('attr' => array('class'=>'singleFieldTags'), 'required' => false, 'label' => 'Tags'))
+            ->add('tagsText', 'text', array('required' => false))
             // ->add('created')
             // ->add('updated')
         ;

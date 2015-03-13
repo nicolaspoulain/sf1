@@ -1,6 +1,6 @@
 Nico_BlogBundle_homepage:
     pattern:  /
-    defaults: { _controller: NicoBlogBundle:Page:index }
+    defaults: { _controller: NicoBlogBundle:Quark:index }
     requirements:
         _method:  GET
 Nico_BlogBundle_about:
