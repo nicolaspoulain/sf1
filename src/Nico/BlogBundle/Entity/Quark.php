@@ -10,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="quark")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Nico\BlogBundle\Entity\QuarkRepository")
  */
 class Quark implements TaggableInterface
 {

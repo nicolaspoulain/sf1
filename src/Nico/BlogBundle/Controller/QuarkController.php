@@ -23,7 +23,7 @@ class QuarkController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('NicoBlogBundle:Quark')->findAll();
+        $entities = $em->getRepository('NicoBlogBundle:Quark')->findAllQuarkAndTags();
 
         return $this->render('NicoBlogBundle:Quark:index.html.twig', array(
             'entities' => $entities,
