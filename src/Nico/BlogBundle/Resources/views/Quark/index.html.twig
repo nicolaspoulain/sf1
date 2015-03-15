@@ -4,10 +4,10 @@
 <h1>Quark list</h1>
 
 <p>
-  <a class="btn btn-info btn-lg" href="{{ path('quark_new') }}">
-    Create a new entry
-  </a>
-  </p>
+<a class="btn btn-info btn-lg" href="{{ path('quark_new') }}">
+  Create a new entry
+</a>
+</p>
 
 {% for entity in entities %}
 <div class="panel panel-primary">
@@ -16,9 +16,16 @@
       <span class="pull-right badge">{{ entity.parent }}</span>
       <span class="pull-right badge">{{ entity.userid}}</span>
       <span class="pull-right">{% if entity.updated %}{{ entity.updated|date('Y-m-d H:i:s') }}{% endif %} </span>
-          {{ entity.id }}</h3>
+      {{ entity.id }}</h3>
   </div>
   <div class="panel-body">
+    <p>
+    <p class="pull-right">
+    {% for tag in entity.tags %}
+    <span class="label label-default">{{ tag }}</span>&nbsp;
+    {% endfor %}
+    </p>
+    </p>
     <p>{{ entity.content | md2html }}</p>
     <p>
     <a class="btn btn-primary btn-xs" href="{{ path('quark_show', { 'id': entity.id }) }}">show</a>
