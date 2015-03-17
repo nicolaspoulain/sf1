@@ -18,18 +18,40 @@ class QuarkController extends Controller
     /**
      * Lists all Quark entities.
      *
-     */
-    public function indexAction()
+     */ public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('NicoBlogBundle:Quark')->findAllQuarkAndTags();
-        // $entities = $em->getRepository('NicoBlogBundle:Quark')->findAll();
+        $entarray = $em->getRepository('NicoBlogBundle:Quark')->findAllQuarkAndTagsArray();
+        // print_r($entarray[1]['tags']);
+        $tagAssoc = array();
+        foreach ($entarray as $quark) {
+          ksort($quark['tags']);
+          foreach ($quark['tags'] as $tag) {
+            $tags[$tag['id']] = $tag['name'];
+            $tagAssoc[$tag['id']] = array();
+          }
+        }
+        foreach ($entarray as $quark) {
+          foreach ($quark['tags'] as $tag1) {
+            foreach ($quark['tags'] as $tag2) {
+              if ($tag2['id'] > $tag1['id']) {
+                $tagAssoc[$tag1['id']][$tag2['id']] = 
+                  isset($tagAssoc[$tag1['id']][$tag2['id']] )
+                      ? $tagAssoc[$tag1['id']][$tag2['id']] + 1
+                      : 1;
+              }
+            }
+          }
+        }
+        // print_r($tags);
+        // print_r($tagAssoc);
 
-        $tagArray = array();
-        
         return $this->render('NicoBlogBundle:Quark:index.html.twig', array(
             'entities' => $entities,
+            'tags' => $tags,
+            'tagAssoc' => $tagAssoc,
         ));
     }
     /**

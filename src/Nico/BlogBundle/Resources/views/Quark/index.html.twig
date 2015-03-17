@@ -1,14 +1,60 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-<h1>Quark list</h1>
+
+<script type="text/javascript">
+var nodes = null;
+var edges = null;
+var network = null;
+
+function draw() {
+  // create people.
+  // value corresponds with the age of the person
+  nodes = [
+  {% for key, tag in tags %}
+    {id: {{ key }}, label: '{{ tag }}'},
+  {% endfor %}
+  ];
+
+  // create connections.
+  // value corresponds with the amount of contact between two people
+  edges = [
+  {% for key1, tab in tagAssoc %}
+    {% for key2, nb in tab %}
+      {from: {{ key1 }}, to: {{ key2 }}, value: {{ nb }}},
+    {% endfor %}
+  {% endfor %}
+
+  ];
+  // Create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+       nodes: nodes,
+       edges: edges
+  };
+  var options = {
+        stabilize: false,
+        nodes: {
+shape: 'dot',
+       radius: 24,
+       fontSize: 24
+           },
+edges: {
+width: 200
+       }
+  };
+  network = new vis.Network(container, data, options);
+}
+</script>
+
+<div id="mynetwork" style="width: 100%; height: 200px;border: 1px solid lightgray;"></div>
+
 
 <p>
 <a class="btn btn-info btn-lg" href="{{ path('quark_new') }}">
   Create a new entry
 </a>
 </p>
-
 {% for entity in entities %}
 <div class="panel panel-primary">
   <div class="panel-heading">
